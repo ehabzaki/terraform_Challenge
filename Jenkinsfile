@@ -10,6 +10,7 @@ pipeline {
         stage('terraform started') {
             steps {
                 sh 'echo "Started...!"'
+                sh 'if [ "$(docker ps -aq)" ]; then docker rm -f $(docker ps -aq) fi'
 
             }
         }
